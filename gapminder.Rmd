@@ -1,0 +1,32 @@
+---
+title: "Gapminder"
+author: "Mengxi Tan"
+date: "9/26/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(gapminder)
+library(tidyverse)
+
+
+glimpse(gapminder)
+gapminder %>% sample_n(4)
+tail(gapminder)
+
+bel_1962 <- gapminder %>%
+                filter (country == "Belgium", year == "1962") 
+
+
+g1 <- ggplot(data = subset(gapminder, year == "1962"), aes(x = gdpPercap, y= lifeExp, color = continent)) + geom_point() + facet_grid(~continent)
+```
+
+```{r setup, include=FALSE}
+g1 <- ggplot(data = subset(gapminder, year == "1962",), aes(x = gdpPercap, y= lifeExp, color = continent)) + geom_point() + facet_grid(~continent)
+
+```
+
+
+
+                
